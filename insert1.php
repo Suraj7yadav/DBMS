@@ -6,11 +6,13 @@ $phno= $_POST["phno"];
 $email= $_POST["email"];
 $pass= $_POST["password"];
 $sql = "INSERT INTO user_login(fname,lname,phone,email,password) VALUES('$fname','$lname','$phno','$email','$pass')";
-$result = $connection->query($sql);
+//$result = $connection->query($sql);
 if ($connection->query($sql) === TRUE) {
     echo "New record created successfully";
+    include 'login.html';
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $connection->error;
+
 }
 
 ?>
