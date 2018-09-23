@@ -1,13 +1,14 @@
-#body_bg
-{ 
-background-color:#9F81F7; 
+#body_bg {
+    /*background-color: #9F81F7;*/
+    background-image: url("cartrade.jpg");
+    background-blend-mode: lighten;
+    background-attachment: scroll;
 }
 
-#login-form{ 
-
-background:#A9D0F5; 
-border: 3 px solid #eeeee; 
-padding:9px 9px;
- width:300px; 
- border-radius:5px; 
+#login-form {
+    background: #A9D0F5;
+    border: 3 px solid #eeeee;
+    padding: 9px 9px;
+    width: 300px;
+    border-radius: 5px;
 }
