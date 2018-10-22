@@ -4,8 +4,10 @@ $fname= $_POST["fname"];
 $lname= $_POST["lname"];
 $phno= $_POST["phno"];
 $email= $_POST["email"];
+$add= $_POST["add"];
+$user_id= $_POST["user_id"];
 $pass= $_POST["password"];
-$sql = "INSERT INTO user_login(fname,lname,phone,email,password) VALUES('$fname','$lname','$phno','$email','$pass')";
+$sql = "INSERT INTO `owner`(fname,lname,phone,email,username,password,address) VALUES('$fname','$lname','$phno','$email','$user_id','$pass','$add')";
 //$result = $connection->query($sql);
 if ($connection->query($sql) === TRUE) {
     echo "New record created successfully";
