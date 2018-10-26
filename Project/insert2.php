@@ -37,9 +37,9 @@ $caid = $connection->query("SELECT car_id FROM `car` WHERE type = '$type' and br
 
 $sql2 = "INSERT INTO car_details(car_id,car_condition,color,regno,year_of_purchase,price,distance_travelled,owner_id) VALUES('$caid','$car_cond','$color','$reg','$year','$price','$distance',$name)";
 $sql3 = "INSERT INTO security_details(car_id,insurance_no,rto_no,emission_ratings) VALUES('$caid','$ino','$rto','$emi')";
-
+$sql4 = "INSERT INTO status(owner_id,car_id,status) VALUES('$name','$caid','unsold')";
 //$result = $connection->query($sql);
-if ($x && $connection->query($sql2) === TRUE && $connection->query($sql3) === TRUE) {
+if ($x && $connection->query($sql2) === TRUE && $connection->query($sql3) === TRUE && $connection->query($sql4) === TRUE) {
     echo "New record created successfully";
 
     header("Location: home2.html");

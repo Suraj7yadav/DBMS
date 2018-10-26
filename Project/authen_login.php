@@ -9,7 +9,7 @@ if (isset($_POST['user_id']) and isset($_POST['user_pass'])){
 $username = $_POST['user_id'];
 $password = $_POST['user_pass'];
 // CHECK FOR THE RECORD FROM TABLE
-$query = "SELECT * FROM `owner` WHERE username='$username' and Password='$password'";
+$query = "SELECT * FROM `login_info` WHERE username='$username' and Password='$password'";
  
 
 
@@ -29,10 +29,10 @@ if ($count){
     header("Location: home2.html");	
 
 }else{
-echo "<script type='text/javascript'>alert('Invalid Login Credentials')</script>";
+echo " <script type='text/javascript'>alert('Invalid Login Credentials')</script>";
      $_SESSION['logged']=false;
      header("Location: login2.html");
-//echo "Invalid Login Credentials";
+echo "Invalid Login Credentials";
 }
 }
 ?>
