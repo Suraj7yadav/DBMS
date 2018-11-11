@@ -1,14 +1,24 @@
 <?php
-// Start the session
-session_start();
+require('db_connect.php');
+$sql="SELECT * FROM `car`";
+$result=mysqli_query($connection,$sql);
 ?>
-    <!DOCTYPE html>
+
+
+
+
+
+
+
+<!DOCTYPE html>
     <html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
+      
+    /*<link rel="stylesheet" href="style.css">
   /* Style the input field */
   #myInput {
     padding: 20px;
@@ -17,35 +27,33 @@ session_start();
     border-radius: 0;
     background: #f1f1f1;
   }
-  .button {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 6px;
-  border: 0;
-  font-weight: bold;
-  letter-spacing: 0.0625em;
-  text-transform: uppercase;
-  background: #215f8b;
-  color: #fff;
+  
+  html {
+    background: url(https://i.imgsafe.org/1fee5c9.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
 }
   </style>
 </head>
 <body id="body_bg">
         <div <div align="center">
 
-        <h1>Car Trade</h1>
+        <h1 opacity=0.1 >Car Trade</h1>
 
 <hr>
             <form action="search1.php" method="POST">
                 Keyword:<br>
                 <input type="text" placeholder="Search..." name="Keyword">
-                <input type="submit" value="Submit">
+                <input type="submit" value="Search">
             </form>
 
             </hr>
         </div>
 <hr>
-<div class="container">
+<div class="container" align="center">
   <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter 
     <span class="caret"></span></button>
@@ -71,22 +79,73 @@ $(document).ready(function(){
 </html>
 
 
-            <?php
-include "db_connect.php";
-$sql="SELECT * FROM car";
 
-$result = $connection->query($sql);
 
-if ($result->num_rows > 0) {
-    echo "<br>Results<br><br>";
-        while($row = $result->fetch_assoc()) {
-        echo "Type: ". $row["type"]."<br>"."Brand: ".$row["brand"]."<br>"."Model: ".$row["model"]."<br><br>";
-        echo"
-                   <form action=\"sbuy.php\" method=\"POST\">
-                                   <input type=\"submit\" value=\"Buy\">";
-    }
-} else {
-    echo "Error: " . $sql . "<br>" . $connection->error;
+
+
+ 
+ 
+<form id="form" name="form" method="post" action="payment.php">
+<table border='1' cellspacing='0' width='612' id='yourTbl'>
+  <tr>
+    <th bgcolor=#6699ff><font color='white'>Sl.No</font></th>
+    <th bgcolor=#6699ff><font color='white'>Brand</font></th>
+    <th bgcolor=#6699ff><font color='white'>Model</font></th>
+    <th bgcolor=#6699ff><font color='white'>Type</font></th>
+    <th bgcolor=#6699ff><font color='white'>Fuel</font></th>
+    <th bgcolor=#6699ff><font color='white'>Transmission</font></th>
+  </tr>
+  <?php
+      $i = 0;
+      $number = 0;
+      while($row = mysqli_fetch_array($result))
+      {
+ 
+        $number++; 
+        $i++;
+        if($i%2)
+        {
+            $bg_color = "#EEEEEE";
+        }
+        else 
+        {
+             $bg_color = "#E0E0E0";
+        }   
+   ?>
+        <tr bgcolor=<?php echo $bg_color; ?> >  
+            <td><center><Strong><font color='red'><?php echo $number; ?></font></Strong></center></td>
+            <td><center><Strong><?php echo $row['brand']; ?></Strong></center></td>
+            <td><center><Strong><?php echo $row['model']; ?></Strong></center></td>
+            <td><center><Strong><?php echo $row['type']; ?></Strong></center></td>
+            <td><center><Strong><?php echo $row['fuel_type']; ?></Strong></center></td>
+            <td><center><Strong><?php echo $row['transmission_type']; ?></Strong> &nbsp;&nbsp;&nbsp;
+            <td><button name = "key" type = "submit" value = "<?php echo $row['car_id']; ?>">BUY</button>&nbsp;</center></td>
+        </tr>
+<?php 
+      } 
+ ?>
+</table>
+</form>
+
+
+<script type="text/javascript">
+function yourEvent(btnClick)
+{
+   var table = document.getElementById('yourTbl');
+   
+   var rowCount = table.rows.length; 
+   //console.log(table);
+   var data;
+   for(var i=0; i<rowCount; i++) 
+   {
+		 var row = table.rows[i];
+		 var chkbox = row.cells[4].childNodes[0];
+		 if(chkbox == btnClick)
+                 {
+		       data = table.rows[i].cells[1].innerHTML;	
+                       break;
+                 }
+   } 
+   alert(data);
 }
-?>
-</hr>
+</script>

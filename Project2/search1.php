@@ -1,20 +1,29 @@
 <?php
-session_start(); // Right at the top of your script
+session_start(); 
 ?>
 <?php
 
 include "db_connect.php";
 $key= $_POST["Keyword"];
-//echo $key;
-$sql = "SELECT * FROM car where model='$key'";
+
+$sql = "SELECT * FROM car where model='$key'";  //search by model
 $result = $connection->query($sql);
-//echo $result;
+
+$sql1 = "SELECT * FROM car where brand='$key'";  //search by brand ok?
+$result1 = $connection->query($sql1);
+
+
+
 if ($result) {
-    // output data of each row
     while($row = $result->fetch_assoc()) {
         echo "Type: ". $row["type"]."<br>"."Brand: ".$row["brand"]."<br>"."Model: ".$row["model"]."<br><br>";
     }
-} else {
+}
+if ($result1) {
+    while($row = $result1->fetch_assoc()) {
+        echo "Type: ". $row["type"]."<br>"."Brand: ".$row["brand"]."<br>"."Model: ".$row["model"]."<br><br>";
+    }
+ } else {
     echo "No results found";
 }
 ?>
