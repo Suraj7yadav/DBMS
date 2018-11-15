@@ -17,10 +17,23 @@ session_start();
     border-radius: 0;
     background: #f1f1f1;
   }
+  body {
+
+    background-image: url('car4.jpg') ;
+ background-size:100%;
+background-repeat:none;
+background-attachment:fixed;
+color : black;
+    overflow: scroll;
+}
 
   </style>
 </head>
+  <title>CAR TRADE-Admin</title>
+
 <body id="body_bg">
+      <button onclick="window.history.back()">Go Back</button>
+
         <div <div align="center">
 
         <h1>Car Trade</h1>
@@ -44,6 +57,17 @@ session_start();
   </div>
 </div>
 </form>
+
+<hr>
+        <form class="form-horizontal" id="delete" method="post" action="delete.php">
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="delete" name="delete" class="btn btn-primary">Delete users</button>
+  </div>
+</div>
+</form>
+
 <hr>
        <form action="proc.php" method="POST">
                 Keyword:<br>

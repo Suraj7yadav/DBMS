@@ -1,80 +1,114 @@
 
     <!DOCTYPE html>
-    <html>
-<style>
-  body {
+<html>
+  <head>
 
-    background-image: url('car3.jpeg') ;
- background-size:100%;
-background-repeat:none;
-background-attachment:fixed;
+  <link href="sell.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-    overflow: hidden;
-}
-</style>
-    <body>
-        <h1>Car Trade</h1>
+  </head>
+  <title>CAR TRADE-Sell</title>
+<body id="LoginForm">
+<div class="container">
+<h1 class="form-heading">Car Trade</h1>
+<div class="login-form">
+<div class="main-div">
+    <div class="panel">
+   <h2>Car details</h2>
+   <p>Please enter your car details </p>
+   </div>
+    <form id="Login" action="insert2.php" method="POST">
 
-<hr>
-            <form action="insert2.php" method="POST">
-                Car Type:<br>
-                <input type="text" name="type"><br><br>
-                Car brand:<br>
-                <input type="text" name="brand"><br><br>
-                Car Model:<br>
-                <input type="text" name="model"><br><br> 
-                Fuel Type<br>
-               <select name="ft">
-                <option value="petrol">petrol</option>
-                <option value="diesel">diesel</option>
-                <option value="eco">Eco</option>
-                </select>
-                <br><br>
-                Transmission Type<br>
-                <select name="tt">
-                <option value="auto">auto</option>
-                <option value="manual">manual</option>
-                </select>
-                <br><br>
+        <div class="form-group">
 
 
+            <input type="text" class="form-control" name="type" placeholder=" Car type">
 
-                <h2> Enter the details</h2>
-                Car condition:<br>
-                <select name="car_cond">
-                <option value="old">old</option>
-                <option value="new">new</option>
-                </select>
-                <br><br>
-                Car Color:<br>
-                <input type="text" name="color"><br><br>
-                Registration number:<br>
-                <input type="text" name="reg"><br><br>
-                Year of purchase:<br>
-                <input type="txt" name="year"><br><br>
-                Price(₹):<br>
-                <input type="text" name="price"><br><br>
-                Distance Travelled:<br>
-                <input type="text" name="distance"><br><br>
-                
+        </div>
 
+        <div class="form-group">
 
+            <input type="text" class="form-control" name="brand" placeholder=" Car brand">
 
+        </div>
 
+        <div class="form-group">
 
-                <h2> Enter the Extra details</h2>
-                Insurance Number:<br>
-                <input type="text" name="ino"><br><br>
-                Rto Number:<br>
-                <input type="text" name="rto"><br><br>
-                Emission Ratings:<br>
-                <input type="txt" name="emi"><br><br>
+            <input type="text" class="form-control" name="model" placeholder=" Car Model">
 
+        </div>
 
-                
-                <input type="submit" value="Submit">
-            </form>
-            </hr>
+        <div class="form-group">
 
-    </html>
-    </body>
+            <input type="text" class="form-control" name="ft" placeholder=" Fuel type">
+
+        </div>
+
+        <div class="form-group">
+
+            <input type="text" class="form-control" name="tt" placeholder=" Transmission type">
+
+        </div>
+
+        <div class="form-group">
+
+            <input type="text" class="form-control" name="car_cond" placeholder=" Car condition">
+
+        </div>
+
+        <div class="form-group">
+
+            <input type="text" class="form-control" name="color" placeholder=" Car color">
+
+        </div>
+
+        <div class="form-group">
+
+            <input type="text" class="form-control" name="reg" placeholder=" Registration no.">
+
+        </div>
+
+        <div class="form-group">
+
+            <input type="text" class="form-control" name="year" placeholder=" Purchase year">
+
+        </div>
+
+        <div class="form-group">
+
+            <input type="text" class="form-control" name="price" placeholder=" Car price">
+
+        </div>
+
+        <div class="form-group">
+
+            <input type="text" class="form-control" name="distance" placeholder=" Distance travelled">
+
+        </div>
+
+        <div class="form-group">
+
+            <input type="text" class="form-control" name="ino" placeholder=" Insurance no.">
+
+        </div>  
+
+        <div class="form-group">
+
+            <input type="text" class="form-control" name="rto" placeholder=" RTO no.">
+
+        </div>
+
+        <div class="form-group">
+
+            <input type="text" class="form-control" name="emi" placeholder=" Emission ratings">
+
+        </div>
+
+        <input type="submit" value="Submit" class="btn btn-primary">
+
+    </form>
+    </div>
+</div></div></div>
+    

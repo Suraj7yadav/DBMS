@@ -31,7 +31,7 @@ $result=mysqli_query($connection,$sql);
 
   body {
 
-    background-image: url('car3.jpeg') ;
+    background-image: url('car4.jpg') ;
  background-size:100%;
 background-repeat:none;
 background-attachment:fixed;
@@ -40,6 +40,8 @@ background-attachment:fixed;
 }
   </style>
 </head>
+
+  <title>CAR TRADE-Buy</title>
 
 <body >
         <div align="center">
